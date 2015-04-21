@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% from "form_macros.html" import render_field %}
+
+{% block title %}
+FoodDie -- Add Food
+{% endblock %}
+
+{% block content_header %}
+    <article>
+        <header>
+            <h1>Make Your New Bookmarks: </h1>
+        </header>
+    </article>
+{% endblock %}
+
+{% block content %}
+    <article>
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <table>
+
+                {{ render_field(form.url, size = 50) }}
+                {{ render_field(form.description, size = 50) }}
+
+                <tr class="submit">
+                    <td></td>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+
+            </table>
+        </form>
+    </article>
+{% endblock %}

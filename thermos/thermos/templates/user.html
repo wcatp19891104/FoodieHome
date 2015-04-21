@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+FoodDie -- Welcome {{ usr.username }}
+{% endblock %}
+
+{% block content_header %}
+    <article>
+        <header>
+            <h1>My bookmarks:</h1>
+        </header>
+    </article>
+{% endblock %}
+
+{% block content %}
+    <article>
+        <header>
+            {% if allbms %}
+                <ul>
+                {% for bm in allbms %}
+                    <li>
+                        <a href="{{ bm.url }}" class="bookmark">{{ bm.url }}</a>
+                        <p> <span class="description">{{ bm.description }}</span>
+                            <span class="timestamp">{{ bm.date }}</span>
+                        </p>
+                    </li>
+                {% endfor %}
+                </ul>
+
+            {% else %}
+                <h4> No Bookmarks Yet!</h4>
+            {% endif %}
+        </header>
+    </article>
+{% endblock %}

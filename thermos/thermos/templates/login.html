@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% from "form_macros.html" import render_field %}
+
+{% block title %}
+FoodDie -- Login
+{% endblock %}
+
+{% block content_header %}
+    <article>
+        <header>
+            <h1>Please Login</h1>
+        </header>
+    </article>
+{% endblock %}
+
+{% block content %}
+    <article>
+        <section>
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <table>
+                    {{ render_field(form.username, size = 50) }}
+                    {{ render_field(form.password, size = 50) }}
+                    {{ render_field(form.remember_me) }}
+                    <tr class="submit">
+                        <td></td>
+                        <td><button type="submit">Submit</button></td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </article>
+{% endblock %}
