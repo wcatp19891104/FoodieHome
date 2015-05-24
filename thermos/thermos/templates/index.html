@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+FoodDie -- Welcome {{ current_user.username }}
+{% endblock %}
+
+{% block content_header %}
+    <article>
+        <header>
+            <h1>Welcome:</h1>
+            <p>
+               To Dear {{ current_user.username }} :
+            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.</p>
+        </header>
+    </article>
+{% endblock %}
+
+{% block content %}
+    <article>
+            <h2>Foodies Most Recently Added:</h2>
+        {% if recentbms %}
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>Bookmark</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                    </tr>
+                    {% for bm in recentbms %}
+                        <tr>
+                            <td>{{ namelist[loop.index0] }}</td>
+                            <td><a href="{{ bm.url }}" class="bookmark">{{bm.url}}</a> </td>
+                            <td>{{ bm.description }}</td>
+                            <td>{{ localtimelist[loop.index0] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <h4> No Bookmarks Yet!</h4>
+        {% endif %}
+    </article>
+{% endblock %}
